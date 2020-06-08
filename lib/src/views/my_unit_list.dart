@@ -34,7 +34,7 @@ class Cart extends StatelessWidget {
             ),
             title: Text("${unit.name}: $count"),
             trailing: RaisedButton(
-              child: Text("Clear"),
+              child: Text("Kurangi"),
               elevation: 1.0,
               splashColor: Colors.blueGrey,
               onPressed: () => bloc.reduceItem(giftIndex),
