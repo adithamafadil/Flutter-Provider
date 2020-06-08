@@ -8,12 +8,9 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CartBloc>(
-      create: (_) => CartBloc(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Homescreen(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Homescreen(),
     );
   }
 }
