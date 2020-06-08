@@ -11,6 +11,34 @@ class Cart extends StatelessWidget {
     var bloc = Provider.of<CartBloc>(context);
     var cart = bloc.cart;
 
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: cart.length,
+        itemBuilder: (context, index) {
+          int giftIndex = cart.keys.toList()[index];
+          Unit unit = units[giftIndex];
+          int count = cart[giftIndex];
+
+          return ListTile(
+            leading: Container(
+              height: 70.0,
+              width: 70.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(unit.img),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            title: Text("${unit.name}: ${count}"),
+            trailing: RaisedButton(
+              child: Text("Clear"),
+              onPressed: () => bloc.clear(giftIndex),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
